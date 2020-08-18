@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mars-Weather</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="scripts/app.js" defer></script>
+</head>
+
+<body>
+    <main class="current-weather">
+        <h1 class="main-title">
+            Latest Weather At Elysium Plantitia,Mars
+        </h1>
+
+        <div class="data">
+
+            <div class="date">
+                <h2 class="title">Sol <span data-current-sol></span></h2>
+                <p class="para" data-current-date></p>
+            </div>
+
+            <div class="temp">
+                <h2 class="title">Temperature</h2>
+                <p class="para">
+                    High:
+                    <span class="high" data-current-temp-high></span>
+                    °<span data-temp-unit></span>
+                </p>
+                <p class="para">
+                    Low:
+                    <span class="low" data-current-temp-low></span>
+                    °<span data-temp-unit></span>
+                </p>
+            </div>
+
+
+            <div class="direction">
+                <p class="sr-only" data-wind-direction-text></p>
+                <div class="arrow" data-wind-direction-arrow></div>
+            </div>
+
+
+            <div class="wind">
+                <h2 class="title">Wind</h2>
+                <p class="para"><span class="windspeed">
+                        <span data-wind-speed></span>
+                        <span data-speed-unit></span>
+                </p>
+            </div>
+        </div>
+
+        <div class="info">
+            <p>InSight is taking daily weather measurements (temperature, wind, pressure) on the surface of Mars at
+                Elysium Planitia, a flat, smooth plain near Mars’ equator.</p>
+            <p>This is only a part of InSight’s mission. <a href="https://mars.nasa.gov/insight/mission/overview/"
+                    target="_blank">Click here</a> to find out more.</p>
+        </div>
+
+        <span class="unit">
+            <label for="cel" class="degree">°C</label>
+            <input type="radio" id='cel' name='unit' checked>
+
+            <button class="toggle-switch" data-unit-toggle></button>
+
+            <label for="fah" class="degree">°F</label>
+            <input type="radio" id='fah' name='unit'>
+
+        </span>
+    </main>
+
+    <div class="previous-weather">
+        <!-- When clicked, toggle '.show-weather'
+     to .previous-weather div -->
+        <button for="weather-toggle" class="show-previous-weather"><span>&#8593;</span> <span class="sr-only">Show
+                previous weather</span></button>
+
+        <h2 class=" main-title previous-weather-title">Previous 7 days</h2>
+
+        <div class="previous-days" data-previous-sols>smcbdb</div>
+    </div>
+
+    <template data-previous-sol-template>
+        <div class="previous-day">
+            <h3 class="sol">
+                Sol
+                <span data-sol></span>
+            </h3>
+            <p class="date-day" data-date></p>
+            <p>High:<span class="high" data-temp-high></span>°<span data-temp-unit></span></p>
+            <p>Low:<span class="low" data-temp-low></span>°<span data-temp-unit></span></p>
+            <button class="previous-day-more-info" data-select-button>more info</button>
+        </div>
+    </template>
+</body>
+
+</html>
